@@ -9,30 +9,46 @@ import SwiftUI
 
 struct CategoriesView: View {
   @ObservedObject var viewModel: CategoriesViewModel
+  @State private var isPresentingRateView: Bool = false
+  @State private var ratedRestaurantID: String = ""
   var body: some View {
     let contentHeight: CGFloat = 100.0
     NavigationView {
-      VStack {
-        List(viewModel.items, children: \.children) { row in
-          let item = row.item
-          if let categoryViewModel = item as? CategoryViewModel {
-            CategoryRow(viewModel: categoryViewModel)
-          } else if let restaurantViewModel = item as? RestaurantViewModel {
-            RestaurantRow(viewModel: restaurantViewModel)
-              .frame(height: contentHeight)
-              .modifier(SwipeableModifier(
-                          leadingActions: [SwipeAction(
-                                            title: "Rate",
-                                            iconName: "star.fill",
-                                            onTap: { self.viewModel.rate(restaurant: restaurantViewModel) })],
-                          contentHeight: contentHeight)
-              )
+      ZStack {
+        VStack {
+          List(viewModel.items, children: \.children) { row in
+            let item = row.item
+            if let categoryViewModel = item as? CategoryViewModel {
+              CategoryRow(viewModel: categoryViewModel)
+            } else if let ratingViewModel = item as? RatingViewModel {
+              RatingRow(viewModel: ratingViewModel)
+            }
+            else if let restaurantViewModel = item as? RestaurantViewModel {
+              RestaurantRow(viewModel: restaurantViewModel)
+                .frame(height: contentHeight)
+                .modifier(SwipeableModifier(
+                            leadingActions: [SwipeAction(
+                                              title: "Rate",
+                                              iconName: "star.fill",
+                                              onTap: {
+                                                ratedRestaurantID = restaurantViewModel.restaurantID
+                                                withAnimation {
+                                                  isPresentingRateView.toggle()
+                                                }
+                                              })],
+                            contentHeight: contentHeight)
+                )
+            }
           }
+        }
+        if isPresentingRateView {
+          RateView(isPresenting: $isPresentingRateView, restaurantID: ratedRestaurantID)
+            .transition(.opacity)
         }
       }
     }
     .onAppear {
-      self.viewModel.updateCategories()
+      self.viewModel.handleSceneAppeared()
     }
   }
 }
@@ -70,35 +86,21 @@ struct RestaurantRow: View {
   }
 }
 
+struct RatingRow: View {
+  let viewModel: RatingViewModel
+  
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8.0) {
+      ScoreView(score: viewModel.score)
+      Text(viewModel.comment)
+    }
+  }
+}
+
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
     let restaurantService = MockRestaurantService()
-    restaurantService.categories = mockCategories
     let dependencies = CategoriesViewModel.Dependencies(restaurantService: restaurantService)
     return CategoriesView(viewModel: CategoriesViewModel(dependencies: dependencies))
   }
-  
-  private static var mockCategories: [RestaurantCategory] {
-    return [
-      RestaurantCategory(name: "Lunch", iconImageName: "cross.fill", restaurants: [
-        Restaurant(restaurantID: "1", name: "McD", description: "Some normal food", imageName: "restaurant1", ratings: []),
-        Restaurant(restaurantID: "2", name: "McE", description: "Some great food", imageName: "restaurant2", ratings: []),
-        Restaurant(restaurantID: "3", name: "McC", description: "Some so so food", imageName: "restaurant3", ratings: []),
-      ]),
-      RestaurantCategory(name: "Dinning", iconImageName: "pencil.slash", restaurants: [
-        Restaurant(restaurantID: "4", name: "McS", description: "Some normal food", imageName: "restaurant4", ratings: []),
-        Restaurant(restaurantID: "5", name: "McT", description: "Some great food", imageName: "restaurant5", ratings: []),
-        Restaurant(restaurantID: "6", name: "McR", description: "Some so so food", imageName: "restaurant3", ratings: []),
-      ])
-    ]
-  }
 }
-
-private final class MockRestaurantService: RestaurantService {
-  var categories: [RestaurantCategory] = []
-  
-  func getCategories(completion: @escaping ([RestaurantCategory]) -> Void) {
-    completion(categories)
-  }
-}
-
