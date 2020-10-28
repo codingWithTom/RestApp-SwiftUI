@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8282547A34800570FDC /* MockRestaurantService.swift */; };
+		4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B82D2547A54A00570FDC /* ScoreView.swift */; };
+		4040B8322547A62600570FDC /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8312547A62600570FDC /* RateViewModel.swift */; };
+		4040B8352547A66B00570FDC /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8342547A66B00570FDC /* RateView.swift */; };
 		40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */; };
 		40C660BF252D432C001F795A /* RestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660BE252D432C001F795A /* RestAppApp.swift */; };
 		40C660C3252D432D001F795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C660C2252D432D001F795A /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4040B8282547A34800570FDC /* MockRestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantService.swift; sourceTree = "<group>"; };
+		4040B82D2547A54A00570FDC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		4040B8312547A62600570FDC /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
+		4040B8342547A66B00570FDC /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableModifier.swift; sourceTree = "<group>"; };
 		40C660BB252D432C001F795A /* RestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C660BE252D432C001F795A /* RestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAppApp.swift; sourceTree = "<group>"; };
@@ -45,6 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4040B8272547A33F00570FDC /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				4040B8282547A34800570FDC /* MockRestaurantService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		4040B82C2547A54300570FDC /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				4040B82D2547A54A00570FDC /* ScoreView.swift */,
+				4040B8312547A62600570FDC /* RateViewModel.swift */,
+				4040B8342547A66B00570FDC /* RateView.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
 		40B83A26252D4B51005CEEBF /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +98,7 @@
 		40C660BD252D432C001F795A /* RestApp */ = {
 			isa = PBXGroup;
 			children = (
+				4040B8272547A33F00570FDC /* Mocks */,
 				40B83A26252D4B51005CEEBF /* ViewModifiers */,
 				40C660E0252D4571001F795A /* Scene */,
 				40C660DA252D43E7001F795A /* Service */,
@@ -113,6 +140,7 @@
 		40C660E0252D4571001F795A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				4040B82C2547A54300570FDC /* Rating */,
 				40C660E2252D457E001F795A /* Categories */,
 			);
 			path = Scene;
@@ -196,14 +224,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
 				40C660D0252D4361001F795A /* RestaurantCategory.swift in Sources */,
 				40C660E4252D4588001F795A /* CategoriesView.swift in Sources */,
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
 				40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */,
+				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
 				40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */,
+				4040B8352547A66B00570FDC /* RateView.swift in Sources */,
 				40C660BF252D432C001F795A /* RestAppApp.swift in Sources */,
 				40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */,
+				4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
