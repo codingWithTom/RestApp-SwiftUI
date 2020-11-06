@@ -21,6 +21,12 @@
 		40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660DB252D43F1001F795A /* RestaurantService.swift */; };
 		40C660E4252D4588001F795A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660E3252D4588001F795A /* CategoriesView.swift */; };
 		40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660E7252D4591001F795A /* CategoriesViewModel.swift */; };
+		40DA615B25539D970052AD1D /* ScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA615A25539D970052AD1D /* ScenePresenter.swift */; };
+		40DA615F25539DC30052AD1D /* Rows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA615E25539DC30052AD1D /* Rows.swift */; };
+		40DA616425539DF40052AD1D /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA616325539DF40052AD1D /* RestaurantView.swift */; };
+		40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA616725539E000052AD1D /* RestaurantDetailViewModel.swift */; };
+		40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA616B25539F7B0052AD1D /* ActivityController.swift */; };
+		40DA61712553A1870052AD1D /* GetShareableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA61702553A1870052AD1D /* GetShareableInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,12 @@
 		40C660DB252D43F1001F795A /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		40C660E3252D4588001F795A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		40C660E7252D4591001F795A /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		40DA615A25539D970052AD1D /* ScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresenter.swift; sourceTree = "<group>"; };
+		40DA615E25539DC30052AD1D /* Rows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rows.swift; sourceTree = "<group>"; };
+		40DA616325539DF40052AD1D /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		40DA616725539E000052AD1D /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewModel.swift; sourceTree = "<group>"; };
+		40DA616B25539F7B0052AD1D /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		40DA61702553A1870052AD1D /* GetShareableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShareableInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +110,12 @@
 		40C660BD252D432C001F795A /* RestApp */ = {
 			isa = PBXGroup;
 			children = (
+				40DA615925539D8E0052AD1D /* Presenter */,
 				4040B8272547A33F00570FDC /* Mocks */,
 				40B83A26252D4B51005CEEBF /* ViewModifiers */,
 				40C660E0252D4571001F795A /* Scene */,
 				40C660DA252D43E7001F795A /* Service */,
+				40DA616F2553A17C0052AD1D /* UseCase */,
 				40C660CE252D4357001F795A /* Model */,
 				40C660BE252D432C001F795A /* RestAppApp.swift */,
 				40C660C2252D432D001F795A /* Assets.xcassets */,
@@ -140,6 +154,8 @@
 		40C660E0252D4571001F795A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				40DA616A25539F6C0052AD1D /* Activity */,
+				40DA616225539DE90052AD1D /* Restaurant */,
 				4040B82C2547A54300570FDC /* Rating */,
 				40C660E2252D457E001F795A /* Categories */,
 			);
@@ -151,8 +167,42 @@
 			children = (
 				40C660E3252D4588001F795A /* CategoriesView.swift */,
 				40C660E7252D4591001F795A /* CategoriesViewModel.swift */,
+				40DA615E25539DC30052AD1D /* Rows.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		40DA615925539D8E0052AD1D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				40DA615A25539D970052AD1D /* ScenePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		40DA616225539DE90052AD1D /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				40DA616325539DF40052AD1D /* RestaurantView.swift */,
+				40DA616725539E000052AD1D /* RestaurantDetailViewModel.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		40DA616A25539F6C0052AD1D /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				40DA616B25539F7B0052AD1D /* ActivityController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		40DA616F2553A17C0052AD1D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				40DA61702553A1870052AD1D /* GetShareableInfo.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +276,18 @@
 			files = (
 				4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
+				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
+				40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */,
+				40DA615F25539DC30052AD1D /* Rows.swift in Sources */,
 				40C660D0252D4361001F795A /* RestaurantCategory.swift in Sources */,
 				40C660E4252D4588001F795A /* CategoriesView.swift in Sources */,
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
 				40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */,
 				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
+				40DA616425539DF40052AD1D /* RestaurantView.swift in Sources */,
 				40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */,
+				40DA61712553A1870052AD1D /* GetShareableInfo.swift in Sources */,
+				40DA615B25539D970052AD1D /* ScenePresenter.swift in Sources */,
 				4040B8352547A66B00570FDC /* RateView.swift in Sources */,
 				40C660BF252D432C001F795A /* RestAppApp.swift in Sources */,
 				40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */,
@@ -365,6 +421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -386,6 +443,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

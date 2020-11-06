@@ -9,8 +9,11 @@ import SwiftUI
 
 struct CategoriesView: View {
   @ObservedObject var viewModel: CategoriesViewModel
+  @Environment(\.presentationMode) var presentationMode
   @State private var isPresentingRateView: Bool = false
   @State private var ratedRestaurantID: String = ""
+  @State private var isPresentingShareView: Bool = false
+  @State private var shareRestaurantID: String = ""
   var body: some View {
     let contentHeight: CGFloat = 100.0
     NavigationView {
@@ -23,21 +26,47 @@ struct CategoriesView: View {
             } else if let ratingViewModel = item as? RatingViewModel {
               RatingRow(viewModel: ratingViewModel)
             }
-            else if let restaurantViewModel = item as? RestaurantViewModel {
-              RestaurantRow(viewModel: restaurantViewModel)
-                .frame(height: contentHeight)
-                .modifier(SwipeableModifier(
-                            leadingActions: [SwipeAction(
-                                              title: "Rate",
-                                              iconName: "star.fill",
-                                              onTap: {
-                                                ratedRestaurantID = restaurantViewModel.restaurantID
-                                                withAnimation {
-                                                  isPresentingRateView.toggle()
-                                                }
-                                              })],
-                            contentHeight: contentHeight)
-                )
+            else if let restaurantViewModel = item as? RestaurantViewModel,
+                    let restaurant = viewModel.getRestaurant(for: restaurantViewModel.id) {
+              ZStack {                
+                RestaurantRow(viewModel: restaurantViewModel)
+                  .frame(height: contentHeight)
+                  .modifier(SwipeableModifier(
+                              leadingActions: [SwipeAction(
+                                                title: "Rate",
+                                                iconName: "star.fill",
+                                                onTap: {
+                                                  ratedRestaurantID = restaurantViewModel.restaurantID
+                                                  withAnimation {
+                                                    isPresentingRateView.toggle()
+                                                  }
+                                                })],
+                              contentHeight: contentHeight)
+                  )
+                NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
+                  EmptyView()
+                }.buttonStyle(PlainButtonStyle())
+              }
+              .contextMenu(ContextMenu(menuItems: {
+                Button(action: {
+                  ratedRestaurantID = restaurantViewModel.restaurantID
+                  withAnimation {
+                    isPresentingRateView.toggle()
+                  }
+                }, label: {
+                  Image(systemName: "star.fill")
+                  Text("Rate")
+                })
+                Button(action: {
+                  self.shareRestaurantID = restaurantViewModel.restaurantID
+                  withAnimation {
+                    isPresentingShareView.toggle()
+                  }
+                }, label: {
+                  Image(systemName: "square.and.arrow.up")
+                  Text("Share")
+                })
+              }))
             }
           }
         }
@@ -50,50 +79,9 @@ struct CategoriesView: View {
     .onAppear {
       self.viewModel.handleSceneAppeared()
     }
-  }
-}
-
-struct CategoryRow: View {
-  let viewModel: CategoryViewModel
-  var body: some View {
-    HStack {
-      Image(systemName: viewModel.icon)
-        .foregroundColor(.blue)
-      Text(viewModel.name)
-    }
-  }
-}
-
-struct RestaurantRow: View {
-  let viewModel: RestaurantViewModel
-  
-  var body: some View {
-    GeometryReader { geometry in
-      HStack {
-        Image(viewModel.imageName)
-          .resizable()
-          .frame(width: geometry.size.height)
-          .aspectRatio(contentMode: .fit)
-        VStack(alignment: .leading) {
-          Text(viewModel.name)
-          Spacer()
-          Text(viewModel.description)
-            .font(.caption)
-        }
-        .padding(.vertical)
-      }
-    }
-  }
-}
-
-struct RatingRow: View {
-  let viewModel: RatingViewModel
-  
-  var body: some View {
-    VStack(alignment: .leading, spacing: 8.0) {
-      ScoreView(score: viewModel.score)
-      Text(viewModel.comment)
-    }
+    .sheet(isPresented: $isPresentingShareView, content: {
+      ActivityController(activityItems: self.viewModel.getShareableItems(for: shareRestaurantID))
+    })
   }
 }
 
