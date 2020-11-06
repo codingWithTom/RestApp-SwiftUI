@@ -35,4 +35,8 @@ final class MockRestaurantService: RestaurantService {
   }
   
   func rateRestaurant(restaurantID: String, score: Int, comment: String) { }
+  
+  func getRestaurant(for: String) -> Restaurant? {
+    return nil
+  }
 }

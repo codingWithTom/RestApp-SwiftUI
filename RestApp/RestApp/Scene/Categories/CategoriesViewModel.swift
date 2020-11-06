@@ -44,6 +44,7 @@ struct RatingViewModel: Item {
 final class CategoriesViewModel: ObservableObject {
   struct Dependencies {
     var restaurantService: RestaurantService = RestaurantServiceAdapter.shared
+    var getShareableInfo: GetShareableInfo = GetShareableInfoAdapter()
   }
   private let dependencies: Dependencies
   private var categoriesCancellable: AnyCancellable?
@@ -56,6 +57,15 @@ final class CategoriesViewModel: ObservableObject {
   
   func handleSceneAppeared() {
     dependencies.restaurantService.getCategories()
+  }
+  
+  func getRestaurant(for restaurantID: String) -> Restaurant? {
+    return dependencies.restaurantService.getRestaurant(for: restaurantID)
+  }
+  
+  func getShareableItems(for restaurantID: String) -> [Any] {
+    guard let restaurant = dependencies.restaurantService.getRestaurant(for: restaurantID) else { return [] }
+    return dependencies.getShareableInfo.execute(for: restaurant)
   }
 }
 
@@ -71,23 +81,5 @@ private extension CategoriesViewModel {
         )}
     }.receive(on: DispatchQueue.main)
     .assign(to: \.items, on: self)
-  }
-}
-
-private extension RestaurantCategory {
-  var viewModel: CategoryViewModel {
-    return CategoryViewModel(categoryID: categoryID, name: name, icon: iconImageName)
-  }
-}
-
-private extension Restaurant {
-  var viewModel: RestaurantViewModel {
-    return RestaurantViewModel(restaurantID: restaurantID, name: name, description: description, imageName: imageName)
-  }
-}
-
-private extension Rating {
-  var viewModel: RatingViewModel {
-    return RatingViewModel(ratingID: ratingID, score: Int(score) ?? 0, comment: comment)
   }
 }
