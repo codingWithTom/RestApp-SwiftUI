@@ -12,14 +12,14 @@ final class MockRestaurantService: RestaurantService {
   static var mockCategories: [RestaurantCategory] {
     return [
       RestaurantCategory(categoryID: "1", name: "Lunch", iconImageName: "cross.fill", restaurants: [
-        Restaurant(restaurantID: "1", name: "McD", description: "Some normal food", imageName: "restaurant1", ratings: [Rating(ratingID: "1", score: "3", comment: "Good food!")]),
-        Restaurant(restaurantID: "2", name: "McE", description: "Some great food", imageName: "restaurant2", ratings: []),
-        Restaurant(restaurantID: "3", name: "McC", description: "Some so so food", imageName: "restaurant3", ratings: []),
+        Restaurant(restaurantID: "1", name: "McD", description: "Some normal food", imageName: "restaurant1", ratings: [Rating(ratingID: "1", score: "3", comment: "Good food!")], images: []),
+        Restaurant(restaurantID: "2", name: "McE", description: "Some great food", imageName: "restaurant2", ratings: [], images: []),
+        Restaurant(restaurantID: "3", name: "McC", description: "Some so so food", imageName: "restaurant3", ratings: [], images: []),
       ]),
       RestaurantCategory(categoryID: "2", name: "Dinning", iconImageName: "pencil.slash", restaurants: [
-        Restaurant(restaurantID: "4", name: "McS", description: "Some normal food", imageName: "restaurant4", ratings: []),
-        Restaurant(restaurantID: "5", name: "McT", description: "Some great food", imageName: "restaurant5", ratings: []),
-        Restaurant(restaurantID: "6", name: "McR", description: "Some so so food", imageName: "restaurant3", ratings: []),
+        Restaurant(restaurantID: "4", name: "McS", description: "Some normal food", imageName: "restaurant4", ratings: [], images: []),
+        Restaurant(restaurantID: "5", name: "McT", description: "Some great food", imageName: "restaurant5", ratings: [], images: []),
+        Restaurant(restaurantID: "6", name: "McR", description: "Some so so food", imageName: "restaurant3", ratings: [], images: []),
       ])
     ]
   }
