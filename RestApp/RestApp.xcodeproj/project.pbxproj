@@ -11,6 +11,8 @@
 		4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B82D2547A54A00570FDC /* ScoreView.swift */; };
 		4040B8322547A62600570FDC /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8312547A62600570FDC /* RateViewModel.swift */; };
 		4040B8352547A66B00570FDC /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8342547A66B00570FDC /* RateView.swift */; };
+		40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDA2E2564560E00004D02 /* ImageCacheService.swift */; };
+		40ABDA322564592C00004D02 /* RestaurantImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDA312564592C00004D02 /* RestaurantImageView.swift */; };
 		40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */; };
 		40C660BF252D432C001F795A /* RestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660BE252D432C001F795A /* RestAppApp.swift */; };
 		40C660C3252D432D001F795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C660C2252D432D001F795A /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		4040B82D2547A54A00570FDC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4040B8312547A62600570FDC /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
 		4040B8342547A66B00570FDC /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		40ABDA2E2564560E00004D02 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		40ABDA312564592C00004D02 /* RestaurantImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantImageView.swift; sourceTree = "<group>"; };
 		40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableModifier.swift; sourceTree = "<group>"; };
 		40C660BB252D432C001F795A /* RestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C660BE252D432C001F795A /* RestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAppApp.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				40C660DB252D43F1001F795A /* RestaurantService.swift */,
+				40ABDA2E2564560E00004D02 /* ImageCacheService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			children = (
 				40DA616325539DF40052AD1D /* RestaurantView.swift */,
 				40DA616725539E000052AD1D /* RestaurantDetailViewModel.swift */,
+				40ABDA312564592C00004D02 /* RestaurantImageView.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
 				4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
 				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
@@ -284,6 +291,7 @@
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
 				40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */,
 				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
+				40ABDA322564592C00004D02 /* RestaurantImageView.swift in Sources */,
 				40DA616425539DF40052AD1D /* RestaurantView.swift in Sources */,
 				40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */,
 				40DA61712553A1870052AD1D /* GetShareableInfo.swift in Sources */,
