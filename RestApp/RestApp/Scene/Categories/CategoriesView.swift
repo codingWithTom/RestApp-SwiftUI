@@ -87,8 +87,6 @@ struct CategoriesView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
-    let restaurantService = MockRestaurantService()
-    let dependencies = CategoriesViewModel.Dependencies(restaurantService: restaurantService)
-    return CategoriesView(viewModel: CategoriesViewModel(dependencies: dependencies))
+    return CategoriesView(viewModel: CategoriesViewModel())
   }
 }

@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct RestAppApp: App {
+  
+  private let viewModel = RestaurantAppViewModel()
+  
   var body: some Scene {
     WindowGroup {
       CategoriesView(viewModel: CategoriesViewModel())

@@ -43,8 +43,10 @@ struct RatingViewModel: Item {
 
 final class CategoriesViewModel: ObservableObject {
   struct Dependencies {
-    var restaurantService: RestaurantService = RestaurantServiceAdapter.shared
+    var fetchCategories: FetchCategories = FetchCategoriesAdapter()
     var getShareableInfo: GetShareableInfo = GetShareableInfoAdapter()
+    var getRestaurant: GetRestaurant = GetRestaurantAdapter()
+    var getCategoriesPublisher: GetCategoriesPublisher = GetCategoriesPublisherAdapter()
   }
   private let dependencies: Dependencies
   private var categoriesCancellable: AnyCancellable?
@@ -56,22 +58,22 @@ final class CategoriesViewModel: ObservableObject {
   }
   
   func handleSceneAppeared() {
-    dependencies.restaurantService.getCategories()
+    dependencies.fetchCategories.execute()
   }
   
   func getRestaurant(for restaurantID: String) -> Restaurant? {
-    return dependencies.restaurantService.getRestaurant(for: restaurantID)
+    return dependencies.getRestaurant.execute(for: restaurantID)
   }
   
   func getShareableItems(for restaurantID: String) -> [Any] {
-    guard let restaurant = dependencies.restaurantService.getRestaurant(for: restaurantID) else { return [] }
+    guard let restaurant = dependencies.getRestaurant.execute(for: restaurantID) else { return [] }
     return dependencies.getShareableInfo.execute(for: restaurant)
   }
 }
 
 private extension CategoriesViewModel {
   func subscribeToPublisher() {
-    self.categoriesCancellable = dependencies.restaurantService.categoriesPublisher.map { categories in
+    self.categoriesCancellable = dependencies.getCategoriesPublisher.execute().map { categories in
       categories.map { category in
         RowItem(item: category.viewModel,
                 children: category.restaurants.map { restaurant in

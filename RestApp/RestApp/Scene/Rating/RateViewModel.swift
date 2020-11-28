@@ -9,7 +9,7 @@ import Foundation
 
 final class RateViewModel {
   struct Dependencies {
-    var restaurantService: RestaurantService = RestaurantServiceAdapter.shared
+    var rateRestaurant: RateRestaurant = RateRestaurantAdapter()
   }
   private let dependencies: Dependencies
   
@@ -18,6 +18,6 @@ final class RateViewModel {
   }
   
   func rate(restaurantID: String, score: Int, comment: String) {
-    dependencies.restaurantService.rateRestaurant(restaurantID: restaurantID, score: score, comment: comment)
+    dependencies.rateRestaurant.execute(restaurantID: restaurantID, comment: comment, score: score)
   }
 }
