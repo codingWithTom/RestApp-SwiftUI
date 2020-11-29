@@ -30,13 +30,17 @@ final class MockRestaurantService: RestaurantService {
     return currentSubjectCategories.eraseToAnyPublisher()
   }
   
-  func getCategories() {
+  init() {
     currentSubjectCategories.value = categories
   }
-  
-  func rateRestaurant(restaurantID: String, score: Int, comment: String) { }
   
   func getRestaurant(for: String) -> Restaurant? {
     return nil
   }
+  
+  func getCategory(forRestaurantID: String) -> RestaurantCategory? {
+    return nil
+  }
+  
+  func update(with categories: [RestaurantCategory]) { }
 }

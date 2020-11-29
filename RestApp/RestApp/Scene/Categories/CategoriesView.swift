@@ -13,7 +13,10 @@ struct CategoriesView: View {
   @State private var isPresentingRateView: Bool = false
   @State private var ratedRestaurantID: String = ""
   @State private var isPresentingShareView: Bool = false
+  @State private var isPresentingRestaurant: Bool = false
   @State private var shareRestaurantID: String = ""
+  @EnvironmentObject private var appModel: RestaurantAppViewModel
+  
   var body: some View {
     let contentHeight: CGFloat = 100.0
     NavigationView {
@@ -79,16 +82,26 @@ struct CategoriesView: View {
     .onAppear {
       self.viewModel.handleSceneAppeared()
     }
+    .onReceive(appModel.$restaurant) { value in
+      if let _ = value {
+        isPresentingRestaurant = true
+      }
+    }
     .sheet(isPresented: $isPresentingShareView, content: {
       ActivityController(activityItems: self.viewModel.getShareableItems(for: shareRestaurantID))
+    })
+    .sheet(isPresented: $isPresentingRestaurant, content: {
+      if let restaurant = appModel.restaurant {
+        RestaurantView(restaurant: restaurant)
+      } else {
+        EmptyView()
+      }
     })
   }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
-    let restaurantService = MockRestaurantService()
-    let dependencies = CategoriesViewModel.Dependencies(restaurantService: restaurantService)
-    return CategoriesView(viewModel: CategoriesViewModel(dependencies: dependencies))
+    return CategoriesView(viewModel: CategoriesViewModel())
   }
 }
