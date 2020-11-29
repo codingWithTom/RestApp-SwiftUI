@@ -8,11 +8,19 @@
 import Foundation
 import Combine
 
-struct RowItem: Identifiable {
+struct RowItem: Identifiable, Hashable {
   let item: Item
   let children: [RowItem]?
   
   var id: String { return item.id }
+  
+  static func ==(rhs: RowItem, lhs: RowItem) -> Bool {
+    return rhs.id == lhs.id
+  }
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 }
 
 protocol Item {

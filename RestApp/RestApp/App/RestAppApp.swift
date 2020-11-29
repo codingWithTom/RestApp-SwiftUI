@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct RestAppApp: App {
   
-  private let viewModel = RestaurantAppViewModel()
+  @StateObject private var viewModel = RestaurantAppViewModel()
   
   var body: some Scene {
     WindowGroup {
       CategoriesView(viewModel: CategoriesViewModel())
+        .environmentObject(viewModel)
+        .onOpenURL(perform: viewModel.handleURL(_:))
     }
   }
 }
