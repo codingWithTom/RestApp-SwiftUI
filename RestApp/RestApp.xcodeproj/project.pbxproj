@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8282547A34800570FDC /* MockRestaurantService.swift */; };
+		403175C3257D35620060E1D0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403175C2257D35620060E1D0 /* SearchBar.swift */; };
 		4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B82D2547A54A00570FDC /* ScoreView.swift */; };
 		4040B8322547A62600570FDC /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8312547A62600570FDC /* RateViewModel.swift */; };
 		4040B8352547A66B00570FDC /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8342547A66B00570FDC /* RateView.swift */; };
@@ -40,7 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4040B8282547A34800570FDC /* MockRestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantService.swift; sourceTree = "<group>"; };
+		403175C2257D35620060E1D0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		4040B82D2547A54A00570FDC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4040B8312547A62600570FDC /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
 		4040B8342547A66B00570FDC /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
@@ -85,14 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4040B8272547A33F00570FDC /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				4040B8282547A34800570FDC /* MockRestaurantService.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		4040B82C2547A54300570FDC /* Rating */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				40DA615925539D8E0052AD1D /* Presenter */,
-				4040B8272547A33F00570FDC /* Mocks */,
 				40B83A26252D4B51005CEEBF /* ViewModifiers */,
 				40C660E0252D4571001F795A /* Scene */,
 				40C660DA252D43E7001F795A /* Service */,
@@ -200,6 +191,7 @@
 				40C660E3252D4588001F795A /* CategoriesView.swift */,
 				40C660E7252D4591001F795A /* CategoriesViewModel.swift */,
 				40DA615E25539DC30052AD1D /* Rows.swift */,
+				403175C2257D35620060E1D0 /* SearchBar.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -313,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
-				4040B8292547A34800570FDC /* MockRestaurantService.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
 				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
 				40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */,
@@ -334,6 +325,7 @@
 				404A563F2572A7A5001CA4F1 /* FetchCategories.swift in Sources */,
 				40DA615B25539D970052AD1D /* ScenePresenter.swift in Sources */,
 				4040B8352547A66B00570FDC /* RateView.swift in Sources */,
+				403175C3257D35620060E1D0 /* SearchBar.swift in Sources */,
 				404A56332572A3DC001CA4F1 /* RestaurantAPI.swift in Sources */,
 				404A56392572A67E001CA4F1 /* GetCategoriesPublisher.swift in Sources */,
 				404A563C2572A6F1001CA4F1 /* RateRestaurant.swift in Sources */,
