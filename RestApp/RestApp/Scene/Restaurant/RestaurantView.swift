@@ -68,7 +68,7 @@ struct RestaurantView_Previews: PreviewProvider {
         Rating(ratingID: "3", score: "3", comment: "Delicious food"),
         Rating(ratingID: "4", score: "4", comment: "Delicious food"),
         Rating(ratingID: "5", score: "5", comment: "Delicious food")
-      ], images: []))
+      ], images: [], dishTypes: []))
     }
   }
 }

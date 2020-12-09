@@ -24,10 +24,21 @@ struct RestaurantRow: View {
   var body: some View {
     GeometryReader { geometry in
       HStack {
-        Image(viewModel.imageName)
-          .resizable()
-          .frame(width: geometry.size.height)
-          .aspectRatio(contentMode: .fit)
+        ZStack(alignment: .topLeading) {
+          Image(viewModel.imageName)
+            .resizable()
+            .frame(width: geometry.size.height)
+            .aspectRatio(contentMode: .fit)
+          HStack {
+            ForEach(0 ..< viewModel.labels.count, id: \.self) { index in
+              let label = viewModel.labels[index]
+              Text(label.text)
+                .background(Color(label.color))
+                .foregroundColor(.white)
+                .font(.footnote)
+            }
+          }
+        }
         VStack(alignment: .leading) {
           Text(viewModel.name)
           Spacer()

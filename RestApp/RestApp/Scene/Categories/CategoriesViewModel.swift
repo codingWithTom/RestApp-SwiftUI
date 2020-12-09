@@ -5,7 +5,7 @@
 //  Created by Tomas Trujillo on 2020-10-06.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 struct RowItem: Identifiable, Hashable {
@@ -39,7 +39,12 @@ struct RestaurantViewModel: Item {
   let name: String
   let description: String
   let imageName: String
+  let labels: [(text: String, color: UIColor)]
   var id: String { return restaurantID }
+  
+  static func ==(lhs: RestaurantViewModel, rhs: RestaurantViewModel) -> Bool {
+    return lhs.id == rhs.id
+  }
 }
 
 struct RatingViewModel: Item {
@@ -59,6 +64,16 @@ final class CategoriesViewModel: ObservableObject {
   private let dependencies: Dependencies
   private var categoriesCancellable: AnyCancellable?
   @Published var items: [RowItem] = []
+  @Published var searchText: String = "" {
+    didSet {
+      dependencies.getCategoriesPublisher.updateSearchFor(text: searchText, dishType: DishType.allCases[selectedSearchScopeIndex])
+    }
+  }
+  @Published var selectedSearchScopeIndex: Int = 0 {
+    didSet {
+      dependencies.getCategoriesPublisher.updateSearchFor(text: searchText, dishType: DishType.allCases[selectedSearchScopeIndex])
+    }
+  }
   
   init(dependencies: Dependencies = .init()) {
     self.dependencies = dependencies
