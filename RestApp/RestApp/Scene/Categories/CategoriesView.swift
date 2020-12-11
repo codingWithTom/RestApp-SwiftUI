@@ -22,15 +22,6 @@ struct CategoriesView: View {
     NavigationView {
       ZStack {
         VStack {
-          SearchBar(text: $viewModel.searchText, placeholder: "Search for a Restaurant")
-          if !viewModel.searchText.isEmpty {
-            Picker("", selection: $viewModel.selectedSearchScopeIndex) {
-              ForEach(0 ..< DishType.allCases.count, id: \.self) { dishIndex in
-                let dishType = DishType.allCases[dishIndex]
-                Text(dishType.rawValue).tag(dishIndex)
-              }
-            }.pickerStyle(SegmentedPickerStyle())
-          }
           List(viewModel.items, children: \.children) { row in
             let item = row.item
             if let categoryViewModel = item as? CategoryViewModel {
@@ -88,6 +79,8 @@ struct CategoriesView: View {
         }
       }
       .navigationTitle("Restaurants")
+      .overlay(SearchBar(text: $viewModel.searchText, selectedIndex: $viewModel.selectedSearchScopeIndex, placeholder: "Search for a Restaurant")
+                .frame(width: 0.0, height: 0.0))
     }
     .onAppear {
       self.viewModel.handleSceneAppeared()
