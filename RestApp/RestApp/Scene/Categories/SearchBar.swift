@@ -7,32 +7,47 @@
 
 import SwiftUI
 
-struct SearchBar: UIViewRepresentable {
+struct SearchBar: UIViewControllerRepresentable {
   @Binding var text: String
+  @Binding var selectedIndex: Int
   let placeholder: String
   
   func makeCoordinator() -> SearchCoordinator {
-    return SearchCoordinator(text: $text)
+    return SearchCoordinator(text: $text, selectedIndex: $selectedIndex)
   }
   
-  func makeUIView(context: Context) -> UISearchBar {
-    let searchBar = UISearchBar()
-    searchBar.delegate = context.coordinator
-    searchBar.placeholder = placeholder
-    return searchBar
+  func makeUIViewController(context: Context) -> some UIViewController {
+    context.coordinator.searchController.searchBar.placeholder = placeholder
+    return WrapperSearchController()
   }
   
-  func updateUIView(_ uiView: UISearchBar, context: Context) { }
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    uiViewController.parent?.navigationItem.searchController = context.coordinator.searchController
+  }
 }
 
-final class SearchCoordinator: NSObject, UISearchBarDelegate {
+final class WrapperSearchController: UIViewController { }
+
+final class SearchCoordinator: NSObject, UISearchBarDelegate, UISearchResultsUpdating {
   @Binding var text: String
+  @Binding var selectedIndex: Int
+  private(set) var searchController = UISearchController()
   
-  init(text: Binding<String>) {
+  init(text: Binding<String>, selectedIndex: Binding<Int>) {
     self._text = text
+    self._selectedIndex = selectedIndex
+    super.init()
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.delegate = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.scopeButtonTitles = DishType.allCases.map { $0.rawValue }
   }
   
-  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    text = searchText
+  func updateSearchResults(for searchController: UISearchController) {
+    text = searchController.searchBar.text ?? ""
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    selectedIndex = selectedScope
   }
 }
