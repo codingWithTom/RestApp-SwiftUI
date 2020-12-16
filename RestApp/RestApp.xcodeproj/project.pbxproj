@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2025897F4F000BDD9B /* SidebarView.swift */; };
+		401D1B2525897F5F000BDD9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2425897F5F000BDD9B /* ProfileView.swift */; };
+		401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2925897F7D000BDD9B /* TabBarView.swift */; };
+		403B47BE25897EA4007F28D9 /* IsAppRunningOnPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */; };
 		4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B82D2547A54A00570FDC /* ScoreView.swift */; };
 		4040B8322547A62600570FDC /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8312547A62600570FDC /* RateViewModel.swift */; };
 		4040B8352547A66B00570FDC /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8342547A66B00570FDC /* RateView.swift */; };
@@ -41,6 +45,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		401D1B2025897F4F000BDD9B /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		401D1B2425897F5F000BDD9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		401D1B2925897F7D000BDD9B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsAppRunningOnPhone.swift; sourceTree = "<group>"; };
 		4040B82D2547A54A00570FDC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4040B8312547A62600570FDC /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
 		4040B8342547A66B00570FDC /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
@@ -87,6 +95,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401D1B1F25897F31000BDD9B /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				401D1B2025897F4F000BDD9B /* SidebarView.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		401D1B2325897F56000BDD9B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				401D1B2425897F5F000BDD9B /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		401D1B2825897F6F000BDD9B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				401D1B2925897F7D000BDD9B /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		4040B82C2547A54300570FDC /* Rating */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +211,9 @@
 		40C660E0252D4571001F795A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				401D1B2825897F6F000BDD9B /* TabBar */,
+				401D1B2325897F56000BDD9B /* Profile */,
+				401D1B1F25897F31000BDD9B /* Sidebar */,
 				40DA616A25539F6C0052AD1D /* Activity */,
 				40DA616225539DE90052AD1D /* Restaurant */,
 				4040B82C2547A54300570FDC /* Rating */,
@@ -234,6 +269,7 @@
 				404A563E2572A7A5001CA4F1 /* FetchCategories.swift */,
 				404A56422572A8F3001CA4F1 /* GetRestaurant.swift */,
 				404A56452572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift */,
+				403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -308,13 +344,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
+				401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
 				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
+				403B47BE25897EA4007F28D9 /* IsAppRunningOnPhone.swift in Sources */,
 				4049C36A2582B23500580190 /* CategoriesList.swift in Sources */,
 				40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */,
 				40DA615F25539DC30052AD1D /* Rows.swift in Sources */,
 				40C660D0252D4361001F795A /* RestaurantCategory.swift in Sources */,
 				40C660E4252D4588001F795A /* CategoriesView.swift in Sources */,
+				401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */,
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
 				40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */,
 				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
@@ -329,6 +368,7 @@
 				404A563F2572A7A5001CA4F1 /* FetchCategories.swift in Sources */,
 				40DA615B25539D970052AD1D /* ScenePresenter.swift in Sources */,
 				4040B8352547A66B00570FDC /* RateView.swift in Sources */,
+				401D1B2525897F5F000BDD9B /* ProfileView.swift in Sources */,
 				40DD21A72580455D00312040 /* SearchBar.swift in Sources */,
 				404A56332572A3DC001CA4F1 /* RestaurantAPI.swift in Sources */,
 				404A56392572A67E001CA4F1 /* GetCategoriesPublisher.swift in Sources */,

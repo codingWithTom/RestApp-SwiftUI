@@ -16,6 +16,7 @@ final class RestaurantAppViewModel: ObservableObject {
   struct Dependencies {
     var retrieveCategories: RetrieveCategoriesFromCache = RetrieveCategoriesFromCacheAdapter()
     var getRestaurant: GetRestaurant = GetRestaurantAdapter()
+    var isAppRunningOnPhone: IsAppRunningOnPhone = IsAppRunningOnPhoneAdapter()
   }
   private let dependencies: Dependencies
   @Published private(set) var restaurant: Restaurant?
@@ -34,5 +35,9 @@ final class RestaurantAppViewModel: ObservableObject {
     if let restaurantID = components?.queryItems?.first(where: { $0.name == DeepLink.restaurantIDQueryItem })?.value {
       self.restaurant = dependencies.getRestaurant.execute(for: restaurantID)
     }
+  }
+  
+  func isAppOnPhone() -> Bool {
+    return dependencies.isAppRunningOnPhone.execute()
   }
 }

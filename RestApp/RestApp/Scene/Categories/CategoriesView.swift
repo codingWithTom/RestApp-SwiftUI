@@ -19,69 +19,67 @@ struct CategoriesView: View {
   
   var body: some View {
     let contentHeight: CGFloat = 100.0
-    NavigationView {
-      ZStack {
-        VStack {
-          List(viewModel.items, children: \.children) { row in
-            let item = row.item
-            if let categoryViewModel = item as? CategoryViewModel {
-              CategoryRow(viewModel: categoryViewModel)
-            } else if let ratingViewModel = item as? RatingViewModel {
-              RatingRow(viewModel: ratingViewModel)
+    ZStack {
+      VStack {
+        List(viewModel.items, children: \.children) { row in
+          let item = row.item
+          if let categoryViewModel = item as? CategoryViewModel {
+            CategoryRow(viewModel: categoryViewModel)
+          } else if let ratingViewModel = item as? RatingViewModel {
+            RatingRow(viewModel: ratingViewModel)
+          }
+          else if let restaurantViewModel = item as? RestaurantViewModel,
+                  let restaurant = viewModel.getRestaurant(for: restaurantViewModel.id) {
+            ZStack {
+              RestaurantRow(viewModel: restaurantViewModel)
+                .frame(height: contentHeight)
+                .modifier(SwipeableModifier(
+                            leadingActions: [SwipeAction(
+                                              title: "Rate",
+                                              iconName: "star.fill",
+                                              onTap: {
+                                                ratedRestaurantID = restaurantViewModel.restaurantID
+                                                withAnimation {
+                                                  isPresentingRateView.toggle()
+                                                }
+                                              })],
+                            contentHeight: contentHeight)
+                )
+              NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
+                EmptyView()
+              }.buttonStyle(PlainButtonStyle())
             }
-            else if let restaurantViewModel = item as? RestaurantViewModel,
-                    let restaurant = viewModel.getRestaurant(for: restaurantViewModel.id) {
-              ZStack {                
-                RestaurantRow(viewModel: restaurantViewModel)
-                  .frame(height: contentHeight)
-                  .modifier(SwipeableModifier(
-                              leadingActions: [SwipeAction(
-                                                title: "Rate",
-                                                iconName: "star.fill",
-                                                onTap: {
-                                                  ratedRestaurantID = restaurantViewModel.restaurantID
-                                                  withAnimation {
-                                                    isPresentingRateView.toggle()
-                                                  }
-                                                })],
-                              contentHeight: contentHeight)
-                  )
-                NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
-                  EmptyView()
-                }.buttonStyle(PlainButtonStyle())
-              }
-              .contextMenu(ContextMenu(menuItems: {
-                Button(action: {
-                  ratedRestaurantID = restaurantViewModel.restaurantID
-                  withAnimation {
-                    isPresentingRateView.toggle()
-                  }
-                }, label: {
-                  Image(systemName: "star.fill")
-                  Text("Rate")
-                })
-                Button(action: {
-                  self.shareRestaurantID = restaurantViewModel.restaurantID
-                  withAnimation {
-                    isPresentingShareView.toggle()
-                  }
-                }, label: {
-                  Image(systemName: "square.and.arrow.up")
-                  Text("Share")
-                })
-              }))
-            }
+            .contextMenu(ContextMenu(menuItems: {
+              Button(action: {
+                ratedRestaurantID = restaurantViewModel.restaurantID
+                withAnimation {
+                  isPresentingRateView.toggle()
+                }
+              }, label: {
+                Image(systemName: "star.fill")
+                Text("Rate")
+              })
+              Button(action: {
+                self.shareRestaurantID = restaurantViewModel.restaurantID
+                withAnimation {
+                  isPresentingShareView.toggle()
+                }
+              }, label: {
+                Image(systemName: "square.and.arrow.up")
+                Text("Share")
+              })
+            }))
           }
         }
-        if isPresentingRateView {
-          RateView(isPresenting: $isPresentingRateView, restaurantID: ratedRestaurantID)
-            .transition(.opacity)
-        }
       }
-      .navigationTitle("Restaurants")
-      .overlay(SearchBar(text: $viewModel.searchText, selectedIndex: $viewModel.selectedSearchScopeIndex, placeholder: "Search for a Restaurant")
-                .frame(width: 0.0, height: 0.0))
+      if isPresentingRateView {
+        RateView(isPresenting: $isPresentingRateView, restaurantID: ratedRestaurantID)
+          .transition(.opacity)
+      }
     }
+    .navigationTitle("Restaurants")
+    .overlay(SearchBar(text: $viewModel.searchText, selectedIndex: $viewModel.selectedSearchScopeIndex, placeholder: "Search for a Restaurant")
+              .frame(width: 0.0, height: 0.0))
     .onAppear {
       self.viewModel.handleSceneAppeared()
     }
