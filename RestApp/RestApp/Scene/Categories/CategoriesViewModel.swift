@@ -76,6 +76,7 @@ final class CategoriesViewModel: ObservableObject {
   }
   
   init(dependencies: Dependencies = .init()) {
+    print("Viewmodel init!")
     self.dependencies = dependencies
     self.subscribeToPublisher()
   }

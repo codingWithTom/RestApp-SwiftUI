@@ -15,6 +15,8 @@ enum DishType: String, Codable, CaseIterable {
 }
 
 struct Restaurant: Codable {
+  static let empty = Restaurant(restaurantID: "", name: "", description: "", imageName: "", ratings: [], images: [], dishTypes: [])
+  
   let restaurantID: String
   let name: String
   let description: String
