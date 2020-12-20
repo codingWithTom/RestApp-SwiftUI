@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4018435C258F9F4700C1D831 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018435B258F9F4700C1D831 /* FavoritesService.swift */; };
+		4018435F258FA10800C1D831 /* GetFavoritesPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */; };
+		40184362258FA17600C1D831 /* AddFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40184361258FA17600C1D831 /* AddFavorite.swift */; };
+		40184365258FA1C400C1D831 /* RemoveFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40184364258FA1C400C1D831 /* RemoveFavorite.swift */; };
 		401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2025897F4F000BDD9B /* SidebarView.swift */; };
 		401D1B2525897F5F000BDD9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2425897F5F000BDD9B /* ProfileView.swift */; };
 		401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2925897F7D000BDD9B /* TabBarView.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4018435B258F9F4700C1D831 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesPublisher.swift; sourceTree = "<group>"; };
+		40184361258FA17600C1D831 /* AddFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavorite.swift; sourceTree = "<group>"; };
+		40184364258FA1C400C1D831 /* RemoveFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavorite.swift; sourceTree = "<group>"; };
 		401D1B2025897F4F000BDD9B /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		401D1B2425897F5F000BDD9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		401D1B2925897F7D000BDD9B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 				404A56322572A3DC001CA4F1 /* RestaurantAPI.swift */,
 				40ABDA2E2564560E00004D02 /* ImageCacheService.swift */,
 				404A56352572A4FB001CA4F1 /* RestaurantCache.swift */,
+				4018435B258F9F4700C1D831 /* FavoritesService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -270,6 +279,9 @@
 				404A56422572A8F3001CA4F1 /* GetRestaurant.swift */,
 				404A56452572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift */,
 				403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */,
+				4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */,
+				40184361258FA17600C1D831 /* AddFavorite.swift */,
+				40184364258FA1C400C1D831 /* RemoveFavorite.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -346,8 +358,10 @@
 				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
 				401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
+				4018435F258FA10800C1D831 /* GetFavoritesPublisher.swift in Sources */,
 				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
 				403B47BE25897EA4007F28D9 /* IsAppRunningOnPhone.swift in Sources */,
+				4018435C258F9F4700C1D831 /* FavoritesService.swift in Sources */,
 				4049C36A2582B23500580190 /* CategoriesList.swift in Sources */,
 				40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */,
 				40DA615F25539DC30052AD1D /* Rows.swift in Sources */,
@@ -372,8 +386,10 @@
 				40DD21A72580455D00312040 /* SearchBar.swift in Sources */,
 				404A56332572A3DC001CA4F1 /* RestaurantAPI.swift in Sources */,
 				404A56392572A67E001CA4F1 /* GetCategoriesPublisher.swift in Sources */,
+				40184365258FA1C400C1D831 /* RemoveFavorite.swift in Sources */,
 				404A563C2572A6F1001CA4F1 /* RateRestaurant.swift in Sources */,
 				40C660BF252D432C001F795A /* RestAppApp.swift in Sources */,
+				40184362258FA17600C1D831 /* AddFavorite.swift in Sources */,
 				40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */,
 				4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */,
 			);
