@@ -49,6 +49,7 @@ struct CategoriesView: View {
                 EmptyView()
               }.buttonStyle(PlainButtonStyle())
             }
+            .onDrag({ NSItemProvider(object: RestaurantDragItem(restaurant: restaurant)) })
             .contextMenu(ContextMenu(menuItems: {
               Button(action: {
                 ratedRestaurantID = restaurantViewModel.restaurantID
@@ -58,6 +59,12 @@ struct CategoriesView: View {
               }, label: {
                 Image(systemName: "star.fill")
                 Text("Rate")
+              })
+              Button(action: {
+                viewModel.addFavorite(restaurant)
+              }, label: {
+                Image(systemName: "suit.heart")
+                Text("Add to Favorites")
               })
               Button(action: {
                 self.shareRestaurantID = restaurantViewModel.restaurantID
