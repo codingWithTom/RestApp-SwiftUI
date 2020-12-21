@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4018435C258F9F4700C1D831 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018435B258F9F4700C1D831 /* FavoritesService.swift */; };
+		4018435F258FA10800C1D831 /* GetFavoritesPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */; };
+		40184362258FA17600C1D831 /* AddFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40184361258FA17600C1D831 /* AddFavorite.swift */; };
+		40184365258FA1C400C1D831 /* RemoveFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40184364258FA1C400C1D831 /* RemoveFavorite.swift */; };
 		401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2025897F4F000BDD9B /* SidebarView.swift */; };
 		401D1B2525897F5F000BDD9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2425897F5F000BDD9B /* ProfileView.swift */; };
 		401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2925897F7D000BDD9B /* TabBarView.swift */; };
@@ -42,9 +46,18 @@
 		40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA616B25539F7B0052AD1D /* ActivityController.swift */; };
 		40DA61712553A1870052AD1D /* GetShareableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA61702553A1870052AD1D /* GetShareableInfo.swift */; };
 		40DD21A72580455D00312040 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD21A62580455D00312040 /* SearchBar.swift */; };
+		40E0FF6C25911BDD00CF0FEF /* NSItemProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF6B25911BDD00CF0FEF /* NSItemProviding.swift */; };
+		40E0FF6F25911D9D00CF0FEF /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF6E25911D9D00CF0FEF /* SidebarViewModel.swift */; };
+		40E0FF732591287200CF0FEF /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF722591287200CF0FEF /* FavoritesView.swift */; };
+		40E0FF77259128C700CF0FEF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF76259128C700CF0FEF /* FavoritesViewModel.swift */; };
+		40E0FF7A259129A100CF0FEF /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF79259129A100CF0FEF /* TabBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4018435B258F9F4700C1D831 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesPublisher.swift; sourceTree = "<group>"; };
+		40184361258FA17600C1D831 /* AddFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavorite.swift; sourceTree = "<group>"; };
+		40184364258FA1C400C1D831 /* RemoveFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavorite.swift; sourceTree = "<group>"; };
 		401D1B2025897F4F000BDD9B /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		401D1B2425897F5F000BDD9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		401D1B2925897F7D000BDD9B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -82,6 +95,11 @@
 		40DA616B25539F7B0052AD1D /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		40DA61702553A1870052AD1D /* GetShareableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShareableInfo.swift; sourceTree = "<group>"; };
 		40DD21A62580455D00312040 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		40E0FF6B25911BDD00CF0FEF /* NSItemProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProviding.swift; sourceTree = "<group>"; };
+		40E0FF6E25911D9D00CF0FEF /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
+		40E0FF722591287200CF0FEF /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		40E0FF76259128C700CF0FEF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		40E0FF79259129A100CF0FEF /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				401D1B2025897F4F000BDD9B /* SidebarView.swift */,
+				40E0FF6E25911D9D00CF0FEF /* SidebarViewModel.swift */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -115,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				401D1B2925897F7D000BDD9B /* TabBarView.swift */,
+				40E0FF79259129A100CF0FEF /* TabBarViewModel.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -204,6 +224,7 @@
 				404A56322572A3DC001CA4F1 /* RestaurantAPI.swift */,
 				40ABDA2E2564560E00004D02 /* ImageCacheService.swift */,
 				404A56352572A4FB001CA4F1 /* RestaurantCache.swift */,
+				4018435B258F9F4700C1D831 /* FavoritesService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -211,6 +232,8 @@
 		40C660E0252D4571001F795A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				40E0FF712591286800CF0FEF /* Favorites */,
+				40E0FF6A25911BCC00CF0FEF /* Drag&Drop */,
 				401D1B2825897F6F000BDD9B /* TabBar */,
 				401D1B2325897F56000BDD9B /* Profile */,
 				401D1B1F25897F31000BDD9B /* Sidebar */,
@@ -270,8 +293,28 @@
 				404A56422572A8F3001CA4F1 /* GetRestaurant.swift */,
 				404A56452572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift */,
 				403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */,
+				4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */,
+				40184361258FA17600C1D831 /* AddFavorite.swift */,
+				40184364258FA1C400C1D831 /* RemoveFavorite.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		40E0FF6A25911BCC00CF0FEF /* Drag&Drop */ = {
+			isa = PBXGroup;
+			children = (
+				40E0FF6B25911BDD00CF0FEF /* NSItemProviding.swift */,
+			);
+			path = "Drag&Drop";
+			sourceTree = "<group>";
+		};
+		40E0FF712591286800CF0FEF /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				40E0FF722591287200CF0FEF /* FavoritesView.swift */,
+				40E0FF76259128C700CF0FEF /* FavoritesViewModel.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,23 +389,30 @@
 				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
 				401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
+				4018435F258FA10800C1D831 /* GetFavoritesPublisher.swift in Sources */,
 				40DA616C25539F7B0052AD1D /* ActivityController.swift in Sources */,
 				403B47BE25897EA4007F28D9 /* IsAppRunningOnPhone.swift in Sources */,
+				4018435C258F9F4700C1D831 /* FavoritesService.swift in Sources */,
 				4049C36A2582B23500580190 /* CategoriesList.swift in Sources */,
 				40DA616825539E000052AD1D /* RestaurantDetailViewModel.swift in Sources */,
 				40DA615F25539DC30052AD1D /* Rows.swift in Sources */,
 				40C660D0252D4361001F795A /* RestaurantCategory.swift in Sources */,
 				40C660E4252D4588001F795A /* CategoriesView.swift in Sources */,
+				40E0FF6F25911D9D00CF0FEF /* SidebarViewModel.swift in Sources */,
 				401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */,
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
+				40E0FF77259128C700CF0FEF /* FavoritesViewModel.swift in Sources */,
+				40E0FF7A259129A100CF0FEF /* TabBarViewModel.swift in Sources */,
 				40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */,
 				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
 				404A56432572A8F3001CA4F1 /* GetRestaurant.swift in Sources */,
 				404A56462572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift in Sources */,
 				404A56362572A4FB001CA4F1 /* RestaurantCache.swift in Sources */,
+				40E0FF732591287200CF0FEF /* FavoritesView.swift in Sources */,
 				40ABDA322564592C00004D02 /* RestaurantImageView.swift in Sources */,
 				40DA616425539DF40052AD1D /* RestaurantView.swift in Sources */,
 				40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */,
+				40E0FF6C25911BDD00CF0FEF /* NSItemProviding.swift in Sources */,
 				404A564A2572AA3F001CA4F1 /* RestaurantAppViewModel.swift in Sources */,
 				40DA61712553A1870052AD1D /* GetShareableInfo.swift in Sources */,
 				404A563F2572A7A5001CA4F1 /* FetchCategories.swift in Sources */,
@@ -372,8 +422,10 @@
 				40DD21A72580455D00312040 /* SearchBar.swift in Sources */,
 				404A56332572A3DC001CA4F1 /* RestaurantAPI.swift in Sources */,
 				404A56392572A67E001CA4F1 /* GetCategoriesPublisher.swift in Sources */,
+				40184365258FA1C400C1D831 /* RemoveFavorite.swift in Sources */,
 				404A563C2572A6F1001CA4F1 /* RateRestaurant.swift in Sources */,
 				40C660BF252D432C001F795A /* RestAppApp.swift in Sources */,
+				40184362258FA17600C1D831 /* AddFavorite.swift in Sources */,
 				40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */,
 				4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */,
 			);

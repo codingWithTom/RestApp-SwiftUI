@@ -60,6 +60,7 @@ final class CategoriesViewModel: ObservableObject {
     var getShareableInfo: GetShareableInfo = GetShareableInfoAdapter()
     var getRestaurant: GetRestaurant = GetRestaurantAdapter()
     var getCategoriesPublisher: GetCategoriesPublisher = GetCategoriesPublisherAdapter()
+    var addFavorite: AddFavorite = AddFavoriteAdapter()
   }
   private let dependencies: Dependencies
   private var categoriesCancellable: AnyCancellable?
@@ -92,6 +93,10 @@ final class CategoriesViewModel: ObservableObject {
   func getShareableItems(for restaurantID: String) -> [Any] {
     guard let restaurant = dependencies.getRestaurant.execute(for: restaurantID) else { return [] }
     return dependencies.getShareableInfo.execute(for: restaurant)
+  }
+  
+  func addFavorite(_ favorite: Restaurant) {
+    dependencies.addFavorite.execute(favorite: favorite)
   }
 }
 
