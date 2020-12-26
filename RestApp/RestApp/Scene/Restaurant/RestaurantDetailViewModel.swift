@@ -13,16 +13,18 @@ struct RestaurantImageViewModel: Identifiable {
   let loader: (@escaping (UIImage?) -> Void) -> Void
 }
 
-final class RestaurantDetailViewModel {
+final class RestaurantDetailViewModel: ObservableObject {
   struct Dependencies {
     var getShareableInfo: GetShareableInfo = GetShareableInfoAdapter()
     var imageCache: ImageCacheService = ImageCacheServiceAdapter.shared
+    var scheduleRestaurantNotification: ScheduleLocalNotificationForRestaurant = ScheduleLocalNotificationForRestaurantAdapter()
   }
   private let dependencies: Dependencies
   private let restaurant: Restaurant
   var restaurantImageName: String { return restaurant.imageName }
   var restaurantDescription: String { return restaurant.description }
   var title: String { return restaurant.name }
+  @Published var isPresntingSettingsAlert: Bool = false
   
   init(dependencies: Dependencies = .init(), restaurant: Restaurant) {
     self.dependencies = dependencies
@@ -44,6 +46,14 @@ final class RestaurantDetailViewModel {
   
   func getShareableItems() -> [Any] {
     return dependencies.getShareableInfo.execute(for: restaurant)
+  }
+  
+  func didTapScheduleNotification() {
+    dependencies.scheduleRestaurantNotification.execute(restaurant: restaurant) { [weak self] isNotificationScheduled in
+      DispatchQueue.main.async {
+        self?.isPresntingSettingsAlert = !isNotificationScheduled
+      }
+    }
   }
 }
 
