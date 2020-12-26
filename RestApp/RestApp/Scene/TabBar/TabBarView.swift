@@ -10,6 +10,8 @@ import SwiftUI
 struct TabBarView: View {
   
   @ObservedObject private var viewModel = TabBarViewModel()
+  @State private var restaurant = Restaurant.empty
+  @State private var isPresentingRestaurant: Bool = false
   
   var body: some View {
     GeometryReader { geometry in
@@ -49,6 +51,16 @@ struct TabBarView: View {
         }
       }
     }
+    .onReceive(viewModel.$presentedRestaurant, perform: { presentedRestaurant in
+      guard let restaurant = presentedRestaurant else { return }
+      self.restaurant = restaurant
+      self.isPresentingRestaurant = true
+    })
+    .sheet(isPresented: $isPresentingRestaurant, content: {
+      NavigationView {
+        RestaurantView(restaurant: viewModel.presentedRestaurant ?? .empty)
+      }
+    })
   }
 }
 

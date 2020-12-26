@@ -14,10 +14,14 @@ final class SidebarViewModel: ObservableObject {
     var favoritesPublisher: GetFavoritesPublisher = GetFavoritesPublisherAdapter()
     var addFavorite: AddFavorite = AddFavoriteAdapter()
     var removeFavorite: RemoveFavorite = RemoveFavoriteAdapter()
+    var notificationsPublisher: GetRestaurantNotificationsPublisher = GetRestaurantNotificationsPublisherAdapter()
+    var getRestaurant: GetRestaurant = GetRestaurantAdapter()
   }
   private let dependencies: Dependencies
   private var favoritesSubscriber: AnyCancellable?
+  private var notificationSubscriber: AnyCancellable?
   @Published var favorites: [Restaurant] = []
+  @Published var presentedRestaurant: Restaurant?
   
   init(dependencies: Dependencies = .init()) {
     self.dependencies = dependencies
@@ -45,6 +49,10 @@ private extension SidebarViewModel {
   func observe() {
     favoritesSubscriber = dependencies.favoritesPublisher.execute().receive(on: RunLoop.main).sink { [weak self] in
       self?.favorites = $0
+    }
+    notificationSubscriber = dependencies.notificationsPublisher.execute().receive(on: RunLoop.main).sink { [weak self] in
+      guard let restaurant = self?.dependencies.getRestaurant.execute(for: $0) else { return }
+      self?.presentedRestaurant = restaurant
     }
   }
 }

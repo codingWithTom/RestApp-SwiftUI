@@ -18,6 +18,7 @@ struct SidebarView: View {
       }
     }
   }
+  @State private var isPresentingRestaurantFromNotification: Bool = false
   @StateObject private var categoriesViewModel = CategoriesViewModel()
   @ObservedObject private var viewModel = SidebarViewModel()
   
@@ -59,6 +60,14 @@ struct SidebarView: View {
       NavigationView {
         RestaurantView(restaurant: selectedFavorite ?? .empty)
       }
+    }
+    .sheet(isPresented: $isPresentingRestaurantFromNotification) {
+      NavigationView {
+        RestaurantView(restaurant: viewModel.presentedRestaurant ?? .empty)
+      }
+    }
+    .onReceive(viewModel.$presentedRestaurant) { presentedRestaurant in
+      self.isPresentingRestaurantFromNotification = presentedRestaurant != nil
     }
   }
   

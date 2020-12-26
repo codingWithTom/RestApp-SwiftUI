@@ -14,6 +14,11 @@
 		401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2025897F4F000BDD9B /* SidebarView.swift */; };
 		401D1B2525897F5F000BDD9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2425897F5F000BDD9B /* ProfileView.swift */; };
 		401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D1B2925897F7D000BDD9B /* TabBarView.swift */; };
+		402E411D2595199500B7B396 /* NotificaitonSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 402E411C2595199500B7B396 /* NotificaitonSound.aiff */; };
+		402E4120259519A200B7B396 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E411F259519A200B7B396 /* UserNotificationService.swift */; };
+		402E412325963C3700B7B396 /* GetRestaurantNotificationsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E412225963C3700B7B396 /* GetRestaurantNotificationsPublisher.swift */; };
+		402E412625963C9F00B7B396 /* ScheduleLocalNotificationForRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E412525963C9F00B7B396 /* ScheduleLocalNotificationForRestaurant.swift */; };
+		402E412925963D8F00B7B396 /* NotificationSettingsAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E412825963D8F00B7B396 /* NotificationSettingsAlertModifier.swift */; };
 		403B47BE25897EA4007F28D9 /* IsAppRunningOnPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */; };
 		4040B82E2547A54A00570FDC /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B82D2547A54A00570FDC /* ScoreView.swift */; };
 		4040B8322547A62600570FDC /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040B8312547A62600570FDC /* RateViewModel.swift */; };
@@ -61,6 +66,11 @@
 		401D1B2025897F4F000BDD9B /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		401D1B2425897F5F000BDD9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		401D1B2925897F7D000BDD9B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		402E411C2595199500B7B396 /* NotificaitonSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = NotificaitonSound.aiff; path = ../../../Sounds/NotificaitonSound.aiff; sourceTree = "<group>"; };
+		402E411F259519A200B7B396 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
+		402E412225963C3700B7B396 /* GetRestaurantNotificationsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRestaurantNotificationsPublisher.swift; sourceTree = "<group>"; };
+		402E412525963C9F00B7B396 /* ScheduleLocalNotificationForRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleLocalNotificationForRestaurant.swift; sourceTree = "<group>"; };
+		402E412825963D8F00B7B396 /* NotificationSettingsAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsAlertModifier.swift; sourceTree = "<group>"; };
 		403B47BD25897EA4007F28D9 /* IsAppRunningOnPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsAppRunningOnPhone.swift; sourceTree = "<group>"; };
 		4040B82D2547A54A00570FDC /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4040B8312547A62600570FDC /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +149,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		402E411B2595197700B7B396 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				402E411C2595199500B7B396 /* NotificaitonSound.aiff */,
+				40C660C2252D432D001F795A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4040B82C2547A54300570FDC /* Rating */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */,
+				402E412825963D8F00B7B396 /* NotificationSettingsAlertModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -192,7 +212,7 @@
 				40DA616F2553A17C0052AD1D /* UseCase */,
 				40C660CE252D4357001F795A /* Model */,
 				404A56482572AA31001CA4F1 /* App */,
-				40C660C2252D432D001F795A /* Assets.xcassets */,
+				402E411B2595197700B7B396 /* Resources */,
 				40C660C7252D432D001F795A /* Info.plist */,
 				40C660C4252D432D001F795A /* Preview Content */,
 			);
@@ -225,6 +245,7 @@
 				40ABDA2E2564560E00004D02 /* ImageCacheService.swift */,
 				404A56352572A4FB001CA4F1 /* RestaurantCache.swift */,
 				4018435B258F9F4700C1D831 /* FavoritesService.swift */,
+				402E411F259519A200B7B396 /* UserNotificationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -296,6 +317,8 @@
 				4018435E258FA10800C1D831 /* GetFavoritesPublisher.swift */,
 				40184361258FA17600C1D831 /* AddFavorite.swift */,
 				40184364258FA1C400C1D831 /* RemoveFavorite.swift */,
+				402E412225963C3700B7B396 /* GetRestaurantNotificationsPublisher.swift */,
+				402E412525963C9F00B7B396 /* ScheduleLocalNotificationForRestaurant.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -375,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C660C6252D432D001F795A /* Preview Assets.xcassets in Resources */,
+				402E411D2595199500B7B396 /* NotificaitonSound.aiff in Resources */,
 				40C660C3252D432D001F795A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */,
+				402E412925963D8F00B7B396 /* NotificationSettingsAlertModifier.swift in Sources */,
 				401D1B2A25897F7D000BDD9B /* TabBarView.swift in Sources */,
 				40C660D4252D437B001F795A /* Restaurant.swift in Sources */,
 				4018435F258FA10800C1D831 /* GetFavoritesPublisher.swift in Sources */,
@@ -399,7 +424,9 @@
 				40C660D0252D4361001F795A /* RestaurantCategory.swift in Sources */,
 				40C660E4252D4588001F795A /* CategoriesView.swift in Sources */,
 				40E0FF6F25911D9D00CF0FEF /* SidebarViewModel.swift in Sources */,
+				402E412325963C3700B7B396 /* GetRestaurantNotificationsPublisher.swift in Sources */,
 				401D1B2125897F4F000BDD9B /* SidebarView.swift in Sources */,
+				402E4120259519A200B7B396 /* UserNotificationService.swift in Sources */,
 				40C660D7252D439B001F795A /* Rating.swift in Sources */,
 				40E0FF77259128C700CF0FEF /* FavoritesViewModel.swift in Sources */,
 				40E0FF7A259129A100CF0FEF /* TabBarViewModel.swift in Sources */,
@@ -407,6 +434,7 @@
 				4040B8322547A62600570FDC /* RateViewModel.swift in Sources */,
 				404A56432572A8F3001CA4F1 /* GetRestaurant.swift in Sources */,
 				404A56462572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift in Sources */,
+				402E412625963C9F00B7B396 /* ScheduleLocalNotificationForRestaurant.swift in Sources */,
 				404A56362572A4FB001CA4F1 /* RestaurantCache.swift in Sources */,
 				40E0FF732591287200CF0FEF /* FavoritesView.swift in Sources */,
 				40ABDA322564592C00004D02 /* RestaurantImageView.swift in Sources */,

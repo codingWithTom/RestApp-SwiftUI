@@ -11,6 +11,7 @@ struct RestaurantView: View {
   let viewModel: RestaurantDetailViewModel
   @State private var isShowingShareActivity = false
   @State private var selectedSemgnetIndex: Int = 0
+  @State private var isPresentingSettingsAlert = false
   
   init(restaurant: Restaurant) {
     self.viewModel = RestaurantDetailViewModel(restaurant: restaurant)
@@ -55,6 +56,15 @@ struct RestaurantView: View {
         let items: [Any] = viewModel.getShareableItems()
         ActivityController(activityItems: items)
     })
+      .onReceive(viewModel.$isPresntingSettingsAlert, perform: { self.isPresentingSettingsAlert = $0 })
+      .modifier(NotificationSettingsAlertModifier(isPresented: $isPresentingSettingsAlert))
+      .toolbar {
+        ToolbarItem(placement: .bottomBar) {
+          Button(action: { self.viewModel.didTapScheduleNotification() } , label: {
+            Image(systemName: "clock.fill")
+          })
+        }
+      }
     }
   }
 }
