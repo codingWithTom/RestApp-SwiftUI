@@ -34,6 +34,7 @@
 		404A564A2572AA3F001CA4F1 /* RestaurantAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A56492572AA3F001CA4F1 /* RestaurantAppViewModel.swift */; };
 		40ABDA2F2564560E00004D02 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDA2E2564560E00004D02 /* ImageCacheService.swift */; };
 		40ABDA322564592C00004D02 /* RestaurantImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDA312564592C00004D02 /* RestaurantImageView.swift */; };
+		40AFF96926F963D40072CDF8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFF96826F963D40072CDF8 /* ContentViewModel.swift */; };
 		40B83A28252D4B61005CEEBF /* SwipeableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */; };
 		40C660BF252D432C001F795A /* RestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660BE252D432C001F795A /* RestAppApp.swift */; };
 		40C660C3252D432D001F795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C660C2252D432D001F795A /* Assets.xcassets */; };
@@ -44,6 +45,11 @@
 		40C660DC252D43F1001F795A /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660DB252D43F1001F795A /* RestaurantService.swift */; };
 		40C660E4252D4588001F795A /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660E3252D4588001F795A /* CategoriesView.swift */; };
 		40C660E8252D4591001F795A /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C660E7252D4591001F795A /* CategoriesViewModel.swift */; };
+		40D9C04526F0228100D32602 /* OrderAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9C04426F0228100D32602 /* OrderAppClipApp.swift */; };
+		40D9C04726F0228100D32602 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9C04626F0228100D32602 /* ContentView.swift */; };
+		40D9C04926F0228200D32602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40D9C04826F0228200D32602 /* Assets.xcassets */; };
+		40D9C04C26F0228200D32602 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40D9C04B26F0228200D32602 /* Preview Assets.xcassets */; };
+		40D9C05126F0228200D32602 /* OrderAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 40D9C04226F0228100D32602 /* OrderAppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		40DA615B25539D970052AD1D /* ScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA615A25539D970052AD1D /* ScenePresenter.swift */; };
 		40DA615F25539DC30052AD1D /* Rows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA615E25539DC30052AD1D /* Rows.swift */; };
 		40DA616425539DF40052AD1D /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA616325539DF40052AD1D /* RestaurantView.swift */; };
@@ -57,6 +63,30 @@
 		40E0FF77259128C700CF0FEF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF76259128C700CF0FEF /* FavoritesViewModel.swift */; };
 		40E0FF7A259129A100CF0FEF /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0FF79259129A100CF0FEF /* TabBarViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40D9C04F26F0228200D32602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C660B3252D432C001F795A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40D9C04126F0228100D32602;
+			remoteInfo = OrderAppClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		40D9C05226F0228200D32602 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				40D9C05126F0228200D32602 /* OrderAppClip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4018435B258F9F4700C1D831 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
@@ -84,8 +114,10 @@
 		404A56422572A8F3001CA4F1 /* GetRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRestaurant.swift; sourceTree = "<group>"; };
 		404A56452572A9D9001CA4F1 /* RetrieveCategoriesFromCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCategoriesFromCache.swift; sourceTree = "<group>"; };
 		404A56492572AA3F001CA4F1 /* RestaurantAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppViewModel.swift; sourceTree = "<group>"; };
+		405DF68026F96C7500343D27 /* RestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestApp.entitlements; sourceTree = "<group>"; };
 		40ABDA2E2564560E00004D02 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		40ABDA312564592C00004D02 /* RestaurantImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantImageView.swift; sourceTree = "<group>"; };
+		40AFF96826F963D40072CDF8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		40B83A27252D4B61005CEEBF /* SwipeableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableModifier.swift; sourceTree = "<group>"; };
 		40C660BB252D432C001F795A /* RestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C660BE252D432C001F795A /* RestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAppApp.swift; sourceTree = "<group>"; };
@@ -98,6 +130,13 @@
 		40C660DB252D43F1001F795A /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		40C660E3252D4588001F795A /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		40C660E7252D4591001F795A /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		40D9C04226F0228100D32602 /* OrderAppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderAppClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40D9C04426F0228100D32602 /* OrderAppClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAppClipApp.swift; sourceTree = "<group>"; };
+		40D9C04626F0228100D32602 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		40D9C04826F0228200D32602 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40D9C04B26F0228200D32602 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40D9C04D26F0228200D32602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40D9C04E26F0228200D32602 /* OrderAppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrderAppClip.entitlements; sourceTree = "<group>"; };
 		40DA615A25539D970052AD1D /* ScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresenter.swift; sourceTree = "<group>"; };
 		40DA615E25539DC30052AD1D /* Rows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rows.swift; sourceTree = "<group>"; };
 		40DA616325539DF40052AD1D /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
@@ -114,6 +153,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		40C660B8252D432C001F795A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40D9C03F26F0228100D32602 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -190,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				40C660BD252D432C001F795A /* RestApp */,
+				40D9C04326F0228100D32602 /* OrderAppClip */,
 				40C660BC252D432C001F795A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				40C660BB252D432C001F795A /* RestApp.app */,
+				40D9C04226F0228100D32602 /* OrderAppClip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +253,7 @@
 		40C660BD252D432C001F795A /* RestApp */ = {
 			isa = PBXGroup;
 			children = (
+				405DF68026F96C7500343D27 /* RestApp.entitlements */,
 				40DA615925539D8E0052AD1D /* Presenter */,
 				40B83A26252D4B51005CEEBF /* ViewModifiers */,
 				40C660E0252D4571001F795A /* Scene */,
@@ -276,6 +325,28 @@
 				4049C3692582B23500580190 /* CategoriesList.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		40D9C04326F0228100D32602 /* OrderAppClip */ = {
+			isa = PBXGroup;
+			children = (
+				40D9C04426F0228100D32602 /* OrderAppClipApp.swift */,
+				40D9C04626F0228100D32602 /* ContentView.swift */,
+				40AFF96826F963D40072CDF8 /* ContentViewModel.swift */,
+				40D9C04826F0228200D32602 /* Assets.xcassets */,
+				40D9C04D26F0228200D32602 /* Info.plist */,
+				40D9C04E26F0228200D32602 /* OrderAppClip.entitlements */,
+				40D9C04A26F0228200D32602 /* Preview Content */,
+			);
+			path = OrderAppClip;
+			sourceTree = "<group>";
+		};
+		40D9C04A26F0228200D32602 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				40D9C04B26F0228200D32602 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		40DA615925539D8E0052AD1D /* Presenter */ = {
@@ -350,15 +421,34 @@
 				40C660B7252D432C001F795A /* Sources */,
 				40C660B8252D432C001F795A /* Frameworks */,
 				40C660B9252D432C001F795A /* Resources */,
+				40D9C05226F0228200D32602 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				40D9C05026F0228200D32602 /* PBXTargetDependency */,
 			);
 			name = RestApp;
 			productName = RestApp;
 			productReference = 40C660BB252D432C001F795A /* RestApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		40D9C04126F0228100D32602 /* OrderAppClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40D9C05526F0228200D32602 /* Build configuration list for PBXNativeTarget "OrderAppClip" */;
+			buildPhases = (
+				40D9C03E26F0228100D32602 /* Sources */,
+				40D9C03F26F0228100D32602 /* Frameworks */,
+				40D9C04026F0228100D32602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrderAppClip;
+			productName = OrderAppClip;
+			productReference = 40D9C04226F0228100D32602 /* OrderAppClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
 		};
 /* End PBXNativeTarget section */
 
@@ -366,11 +456,14 @@
 		40C660B3252D432C001F795A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					40C660BA252D432C001F795A = {
 						CreatedOnToolsVersion = 12.0;
+					};
+					40D9C04126F0228100D32602 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -388,6 +481,7 @@
 			projectRoot = "";
 			targets = (
 				40C660BA252D432C001F795A /* RestApp */,
+				40D9C04126F0228100D32602 /* OrderAppClip */,
 			);
 		};
 /* End PBXProject section */
@@ -400,6 +494,15 @@
 				40C660C6252D432D001F795A /* Preview Assets.xcassets in Resources */,
 				402E411D2595199500B7B396 /* NotificaitonSound.aiff in Resources */,
 				40C660C3252D432D001F795A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40D9C04026F0228100D32602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40D9C04C26F0228200D32602 /* Preview Assets.xcassets in Resources */,
+				40D9C04926F0228200D32602 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +562,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40D9C03E26F0228100D32602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40D9C04726F0228100D32602 /* ContentView.swift in Sources */,
+				40D9C04526F0228100D32602 /* OrderAppClipApp.swift in Sources */,
+				40AFF96926F963D40072CDF8 /* ContentViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40D9C05026F0228200D32602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40D9C04126F0228100D32602 /* OrderAppClip */;
+			targetProxy = 40D9C04F26F0228200D32602 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		40C660C8252D432D001F795A /* Debug */ = {
@@ -581,8 +702,10 @@
 		40C660CB252D432D001F795A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RestApp/RestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -603,8 +726,10 @@
 		40C660CC252D432D001F795A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RestApp/RestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -617,6 +742,74 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodingWithTom.RestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		40D9C05326F0228200D32602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = OrderAppClip/OrderAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OrderAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderAppClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RestApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodingWithTom.RestApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40D9C05426F0228200D32602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = OrderAppClip/OrderAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OrderAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderAppClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RestApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodingWithTom.RestApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -639,6 +832,15 @@
 			buildConfigurations = (
 				40C660CB252D432D001F795A /* Debug */,
 				40C660CC252D432D001F795A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40D9C05526F0228200D32602 /* Build configuration list for PBXNativeTarget "OrderAppClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40D9C05326F0228200D32602 /* Debug */,
+				40D9C05426F0228200D32602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
