@@ -64,6 +64,7 @@ final class CategoriesViewModel: ObservableObject {
   }
   private let dependencies: Dependencies
   private var categoriesCancellable: AnyCancellable?
+  @Published var selectedRestaurant: Restaurant?
   @Published var items: [RowItem] = []
   @Published var searchText: String = "" {
     didSet {

@@ -12,16 +12,21 @@ struct FavoritesView: View {
   @ObservedObject private var viewModel = FavoritesViewModel()
   
   var body: some View {
-    List {
-      ForEach(viewModel.favorites) { restaurant in
-        NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
-          RestaurantRow(viewModel: restaurant.viewModel)
-            .frame(height: 100)
+    NavigationStack {
+      List {
+        ForEach(viewModel.favorites) { restaurant in
+          NavigationLink(value: restaurant) {
+            RestaurantRow(viewModel: restaurant.viewModel)
+              .frame(height: 100)
+          }
         }
+        .onDelete(perform: { indexSet in self.viewModel.removeFrom(indexSet: indexSet) })
       }
-      .onDelete(perform: { indexSet in self.viewModel.removeFrom(indexSet: indexSet) })
+      .navigationTitle("Favorites")
+      .navigationDestination(for: Restaurant.self) {
+        RestaurantView(restaurant: $0)
+      }
     }
-    .navigationTitle("Favorites")
   }
 }
 
