@@ -10,24 +10,25 @@ import SwiftUI
 struct SidebarView: View {
   
   @State private var selectedDestination: Destination? = .restaurants
-  @State private var selectedFavorite: Restaurant? = nil
+  @State private var selectedRestaurant: Restaurant? = nil
   @State private var isPresentingRestaurant: Bool = false {
     didSet {
       if !isPresentingRestaurant {
-        selectedFavorite = nil
+        selectedRestaurant = nil
       }
     }
   }
   @State private var isPresentingRestaurantFromNotification: Bool = false
   @StateObject private var categoriesViewModel = CategoriesViewModel()
   @ObservedObject private var viewModel = SidebarViewModel()
+  @State private var columnVisibility: NavigationSplitViewVisibility = .all
   
   var body: some View {
-    NavigationView {
-      List {
+    NavigationSplitView(columnVisibility: $columnVisibility) {
+      List(selection: $selectedDestination) {
         Section(header: Text("Browse")) {
           ForEach(Destination.allCases) { item in
-            NavigationLink(destination: view(for: selectedDestination), tag: item, selection: $selectedDestination) {
+            NavigationLink(value: item) {
               Label(item.title, systemImage: item.systemImageName).tag(item)
             }
           }
@@ -42,24 +43,20 @@ struct SidebarView: View {
             ForEach(viewModel.favorites) { restaurant in
               Label(restaurant.name, systemImage: "suit.heart")
                 .onTapGesture {
-                  self.selectedFavorite = restaurant
+                  self.selectedRestaurant = restaurant
                   self.isPresentingRestaurant.toggle()
-              }
-                .foregroundColor(selectedFavorite == restaurant ? .blue : .black)
+                }
+                .foregroundColor(selectedRestaurant == restaurant ? .blue : .black)
             }
             .onInsert(of: [.data], perform: { _, items in self.viewModel.addFavoriteFromItems(items) })
             .onDelete(perform: { indexSet in self.viewModel.removeFrom(indexSet: indexSet) })
           }
         }
       }.listStyle(SidebarListStyle())
+    } content: {
       view(for: selectedDestination)
-      if selectedDestination == .restaurants {
-        RestaurantView(restaurant: Restaurant.empty)
-      }
-    }.sheet(isPresented: $isPresentingRestaurant, onDismiss: { isPresentingRestaurant = false }) {
-      NavigationView {
-        RestaurantView(restaurant: selectedFavorite ?? .empty)
-      }
+    } detail: {
+      RestaurantView(restaurant: selectedRestaurant ?? Restaurant.empty)
     }
     .sheet(isPresented: $isPresentingRestaurantFromNotification) {
       NavigationView {
@@ -76,6 +73,10 @@ struct SidebarView: View {
     switch destination {
     case .some(.restaurants):
       CategoriesView(viewModel: categoriesViewModel)
+        .onReceive(categoriesViewModel.$selectedRestaurant) {
+          selectedRestaurant = $0
+          columnVisibility = .doubleColumn
+        }
     case .some(.profile):
       ProfileView()
     default:

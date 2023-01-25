@@ -13,15 +13,13 @@ struct CategoriesView: View {
   @State private var isPresentingRateView: Bool = false
   @State private var ratedRestaurantID: String = ""
   @State private var isPresentingShareView: Bool = false
-  @State private var isPresentingRestaurant: Bool = false
   @State private var shareRestaurantID: String = ""
-  @EnvironmentObject private var appModel: RestaurantAppViewModel
   
   var body: some View {
     let contentHeight: CGFloat = 100.0
     ZStack {
       VStack {
-        List(viewModel.items, children: \.children) { row in
+        List(viewModel.items, children: \.children, selection: $viewModel.selectedRestaurant) { row in
           let item = row.item
           if let categoryViewModel = item as? CategoryViewModel {
             CategoryRow(viewModel: categoryViewModel)
@@ -30,25 +28,23 @@ struct CategoriesView: View {
           }
           else if let restaurantViewModel = item as? RestaurantViewModel,
                   let restaurant = viewModel.getRestaurant(for: restaurantViewModel.id) {
-            ZStack {
+            
+            NavigationLink(value: restaurant) {
               RestaurantRow(viewModel: restaurantViewModel)
                 .frame(height: contentHeight)
                 .modifier(SwipeableModifier(
-                            leadingActions: [SwipeAction(
-                                              title: "Rate",
-                                              iconName: "star.fill",
-                                              onTap: {
-                                                ratedRestaurantID = restaurantViewModel.restaurantID
-                                                withAnimation {
-                                                  isPresentingRateView.toggle()
-                                                }
-                                              })],
-                            contentHeight: contentHeight)
+                  leadingActions: [SwipeAction(
+                    title: "Rate",
+                    iconName: "star.fill",
+                    onTap: {
+                      ratedRestaurantID = restaurantViewModel.restaurantID
+                      withAnimation {
+                        isPresentingRateView.toggle()
+                      }
+                    })],
+                  contentHeight: contentHeight)
                 )
-              NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
-                EmptyView()
-              }.buttonStyle(PlainButtonStyle())
-            }
+            }.buttonStyle(PlainButtonStyle())
             .onDrag({ NSItemProvider(object: RestaurantDragItem(restaurant: restaurant)) })
             .contextMenu(ContextMenu(menuItems: {
               Button(action: {
@@ -90,20 +86,8 @@ struct CategoriesView: View {
     .onAppear {
       self.viewModel.handleSceneAppeared()
     }
-    .onReceive(appModel.$restaurant) { value in
-      if let _ = value {
-        isPresentingRestaurant = true
-      }
-    }
     .sheet(isPresented: $isPresentingShareView, content: {
       ActivityController(activityItems: self.viewModel.getShareableItems(for: shareRestaurantID))
-    })
-    .sheet(isPresented: $isPresentingRestaurant, content: {
-      if let restaurant = appModel.restaurant {
-        RestaurantView(restaurant: restaurant)
-      } else {
-        EmptyView()
-      }
     })
   }
 }

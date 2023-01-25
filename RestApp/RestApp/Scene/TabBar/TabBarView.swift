@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct TabBarView: View {
-  
+  @EnvironmentObject private var appModel: RestaurantAppViewModel
   @ObservedObject private var viewModel = TabBarViewModel()
-  @State private var restaurant = Restaurant.empty
-  @State private var isPresentingRestaurant: Bool = false
+  @StateObject private var categoriesViewModel = CategoriesViewModel()
+  @State private var path: [Restaurant] = []
   
   var body: some View {
     GeometryReader { geometry in
       ZStack {
         TabView {
-          NavigationView {
-            CategoriesView(viewModel: .init())
+          NavigationStack(path: $path) {
+            CategoriesView(viewModel: categoriesViewModel)
+              .onReceive(categoriesViewModel.$selectedRestaurant) { restaurant in
+                guard let restaurant else { return }
+                path = [restaurant]
+              }
+              .navigationDestination(for: Restaurant.self) { restaurant in
+                RestaurantView(restaurant: restaurant)
+              }
           }
           .tabItem {
             Text(Destination.restaurants.title)
@@ -31,9 +38,7 @@ struct TabBarView: View {
             Text(Destination.profile.title)
             Image(systemName: Destination.profile.systemImageName)
           }
-          NavigationView {
-            FavoritesView()
-          }
+          FavoritesView()
           .tabItem {
             Text("Favorites")
             Image(systemName: "suit.heart")
@@ -53,14 +58,12 @@ struct TabBarView: View {
     }
     .onReceive(viewModel.$presentedRestaurant, perform: { presentedRestaurant in
       guard let restaurant = presentedRestaurant else { return }
-      self.restaurant = restaurant
-      self.isPresentingRestaurant = true
+      self.path = [restaurant]
     })
-    .sheet(isPresented: $isPresentingRestaurant, content: {
-      NavigationView {
-        RestaurantView(restaurant: viewModel.presentedRestaurant ?? .empty)
-      }
-    })
+    .onReceive(appModel.$restaurant) { restaurant in
+      guard let restaurant else { return }
+      self.path = [restaurant, restaurant, restaurant]
+    }
   }
 }
 
